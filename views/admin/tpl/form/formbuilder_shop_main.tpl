@@ -15,21 +15,21 @@ function setSmtpField()
     for ( var i = 0; i < [{$edit->oxshops__oxsmtppwd->value|count_characters}]; i++ ) {
         sPass += ' ';
     }
-    document.getElementsByName( 'oxsmtppwd' )[0].value = sPass;
-    document.getElementsByName( 'oxsmtppwd' )[0].userValueSet = false;
+    document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].value = sPass;
+    document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].userValueSet = false;
 }
 function unsetSmtpField()
 {
-    if ( !document.getElementsByName( 'oxsmtppwd' )[0].userValueSet ) {
-        document.getElementsByName( 'oxsmtppwd' )[0].value = '';
+    if ( !document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].userValueSet ) {
+        document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].value = '';
     }
 }
 
 function modSmtpField()
 {
-    if ( !document.getElementsByName( 'oxsmtppwd' )[0].userValueSet ) {
-        document.getElementsByName( 'oxsmtppwd' )[0].value = '';
-        document.getElementsByName( 'oxsmtppwd' )[0].userValueSet = true;
+    if ( !document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].userValueSet ) {
+        document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].value = '';
+        document.getElementsByName( 'editval[oxshops__oxsmtppwd]' )[0].userValueSet = true;
     }
 }
 function editThis(sID)

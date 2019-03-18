@@ -10,7 +10,7 @@ $sMetadataVersion = '2.0';
  */
 $aModule = [
     'id' => 'SiowebOxidBackend',
-    'title' => '<b style="color: #005ba9">Sioweb</b> | Backend',
+    'title' => '<i></i><b style="color: #005ba9">Sioweb</b> | Backend',
     'description' => '.',
     'version' => '1.0',
     'url' => 'https://www.sioweb.de',
