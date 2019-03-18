@@ -30,7 +30,7 @@ class ShopMain implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'mail' => [
                     'class' => 'w50',
                     'fields' => [
-                        'oxname', 'oxsmtp', 'oxsmtpuser', 'oxsmtppwd', 'oxinfoemail', 'oxorderemail', 'oxowneremail', 'oxordersubject', 'oxregistersubject', 'oxforgotpwdsubject', 'oxsendednowsubject'
+                        'subjlang', 'oxname', 'oxsmtp', 'oxsmtpuser', 'oxsmtppwd', 'oxinfoemail', 'oxorderemail', 'oxowneremail', 'oxordersubject', 'oxregistersubject', 'oxforgotpwdsubject', 'oxsendednowsubject'
                     ],
                 ],
                 'submit' => [
@@ -206,6 +206,22 @@ class ShopMain implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'type' => 'text',
                 'label' => 'SHOP_MAIN_NOWSENDEDSUBJECT',
                 'help' => 'HELP_SHOP_MAIN_NOWSENDEDSUBJECT',
+            ],
+            'subjlang' => [
+                'type' => 'select',
+                'static' => true,
+                'name' => 'subjlang',
+                'submitOnChange' => true,
+                'options' => [
+                    [
+                        'key' => 0,
+                        'value' => 'Deutsch'
+                    ],
+                    [
+                        'key' => 1,
+                        'value' => 'English'
+                    ],
+                ]
             ],
             'submit' => [
                 'name' => 'save',

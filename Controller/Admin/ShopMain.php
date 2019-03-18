@@ -21,6 +21,7 @@ class ShopMain extends ShopMain_parent
         if (isset($shopId) && $shopId != self::NEW_SHOP_ID) {
             // load object
             $ShopModel = $this->_aViewData["edit"];
+
             
             $FormData = ['editval' => []];
             foreach ($ShopModel->getFieldNames() as $name) {
@@ -28,10 +29,13 @@ class ShopMain extends ShopMain_parent
                     $FormData['editval']['oxshops__' . $name] = $ShopModel->{'oxshops__' . $name}->value;
                 }
             }
-            // die('<pre>' . print_r($FormData, true));
+            $FormData['subjlang'] = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter("subjlang");
             $Form->setFieldValues($FormData);
         }
-
+        
+        $Form->ignorePostData([
+            'subjlang'
+        ]);
         $Form->setFormData();
 
         $this->_aViewData["form"] = implode("\n", $Form->generate());
