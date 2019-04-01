@@ -19,6 +19,8 @@ $aModule = [
     'extend' => [
         \OxidEsales\Eshop\Application\Controller\Admin\ShopMain::class =>
             \Sioweb\Oxid\Backend\Controller\Admin\ShopMain::class,
+        \OxidEsales\Eshop\Application\Controller\Admin\ShopConfiguration::class =>
+            \Sioweb\Oxid\Backend\Controller\Admin\ShopConfiguration::class,
     ],
     'events' => [
         'onActivate' => '\Sioweb\Oxid\Backend\Core\Events::onActivate',
@@ -26,6 +28,7 @@ $aModule = [
     ],
     'templates' => [
         'formbuilder_shop_main.tpl' => 'sioweb/Backend/views/admin/tpl/form/formbuilder_shop_main.tpl',
+        'formbuilder_shop_config.tpl' => 'sioweb/Backend/views/admin/tpl/form/formbuilder_shop_config.tpl',
     ],
     // 'blocks' => [
     //     [
