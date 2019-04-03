@@ -126,6 +126,9 @@ class ShopConfiguration implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                     ],
                     'fields' => ['blAllowUsersToDeleteTheirAccount', 'blAllowUsersToManageTheirReviews']
                 ],
+                'submit' => [
+                    'fields' => ['submit']
+                ],
             ],
         ];
     }
@@ -333,7 +336,7 @@ class ShopConfiguration implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'help' => 'HELP_SHOP_CONFIG_DEFAULTVAT',
                 'label' => 'SHOP_CONFIG_DEFAULTVAT',
                 'name' => 'confnum[[{ $FIELDNAME }]]',
-                'type' => 'checkbox',
+                'type' => 'text',
             ],
             'blEnterNetPrice' => [
                 'help' => 'HELP_SHOP_CONFIG_ENTERNETPRICE',
@@ -349,8 +352,24 @@ class ShopConfiguration implements \Sioweb\Lib\Formgenerator\Core\FormInterface
             ],
             'sAdditionalServVATCalcMethod' => [
                 'label' => 'SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_METHOD',
-                'type' => 'text',
+                'type' => 'radio',
                 'name' => 'confstrs[[{ $FIELDNAME }]]',
+                'options' => [
+                    [
+                        'key' => 'biggest_net',
+                        'value' => [
+                            'help' => 'HELP_SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_BIGGEST_NET',
+                            'label' => 'SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_BIGGEST_NET',
+                        ]
+                    ],
+                    [
+                        'key' => 'proportional',
+                        'value' => [
+                            'help' => 'HELP_SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_PROPORTIONAL',
+                            'label' => 'SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_PROPORTIONAL',
+                        ]
+                    ]
+                ]
             ],
             'blShowVATForDelivery' => [
                 'help' => 'HELP_SHOP_CONFIG_CALCULATEVATFORDELIVERY',
@@ -417,6 +436,16 @@ class ShopConfiguration implements \Sioweb\Lib\Formgenerator\Core\FormInterface
                 'label' => 'SHOP_CONFIG_AUTOICONS',
                 'type' => 'checkbox',
                 'name' => 'confbools[[{ $FIELDNAME }]]',
+            ],
+            'shop_config' => [
+                'help' => 'HELP_SHOP_CONFIG_ACTIVECATEGORYBYSTART',
+                'label' => 'SHOP_CONFIG_ACTIVECATEGORYBYSTART',
+                'forceLabel' => true,
+                'type' => 'button',
+                'value' => '...',
+                'attributes' => [
+                    'onclick="showDialog(\'&cl=shop_config&aoc=1&oxid=[{ $OXID }]\');"'
+                ]
             ],
             'sCntOfNewsLoaded' => [
                 'help' => 'HELP_SHOP_CONFIG_CNTOFNEWS',

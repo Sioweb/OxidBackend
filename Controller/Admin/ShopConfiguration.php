@@ -57,6 +57,11 @@ class ShopConfiguration extends ShopConfiguration_parent
 
 
         $soxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
+
+        $Form->stringVariables([
+            'oxid' => $soxId,
+        ]);
+        
         if (isset($soxId) && $soxId != "-1") {
             $aDbVariables = $this->loadConfVars($soxId, $this->_getModuleForConfigVars());
             $aConfVars = $aDbVariables['vars'];
@@ -64,8 +69,8 @@ class ShopConfiguration extends ShopConfiguration_parent
             $FormFields = $Form->getFields();
             foreach($aConfVars as $type => $params) {
                 foreach($params as $param => $paramValue) {
-                    if (!empty($paramValue)) {
-                        $FormFields[$param]->value = $paramValue;
+                    if (!empty($paramValue) && $FormFields[$param] !== null) {
+                        $FormFields[$param]->setValue($paramValue);
                     }
                 }
             }
