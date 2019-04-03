@@ -7,6 +7,13 @@ use Sioweb\Lib\Formgenerator\Core\Form as FormGenerator;
 
 class ShopMain extends ShopMain_parent
 {
+    /**
+     * Current class template name.
+     *
+     * @var string
+     */
+    protected $_sThisTemplate = 'formbuilder_shop_main.tpl';
+
     public function render()
     {
         parent::render();
@@ -39,6 +46,6 @@ class ShopMain extends ShopMain_parent
         $Form->setFormData();
 
         $this->_aViewData["form"] = implode("\n", $Form->generate());
-        return 'formbuilder_shop_main.tpl';
+        return $this->_sThisTemplate;
     }
 }

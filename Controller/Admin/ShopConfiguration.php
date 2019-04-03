@@ -7,6 +7,12 @@ use Sioweb\Lib\Formgenerator\Core\Form as FormGenerator;
 
 class ShopConfiguration extends ShopConfiguration_parent
 {
+    /**
+     * Current class template name.
+     *
+     * @var string
+     */
+    protected $_sThisTemplate = 'formbuilder_shop_main.tpl';
 
     public function getHomeCountries()
     {
@@ -52,7 +58,7 @@ class ShopConfiguration extends ShopConfiguration_parent
         
         $Form = new FormGenerator(
             new FormRender,
-            oxNew(\Sioweb\Oxid\Backend\Form\Admin\ShopConfiguration::class)
+            oxNew($this->getAdminForm())
         );
 
 
@@ -82,6 +88,11 @@ class ShopConfiguration extends ShopConfiguration_parent
         $Form->setFormData();
 
         $this->_aViewData["form"] = implode("\n", $Form->generate());
-        return 'formbuilder_shop_config.tpl';
+        return $this->_sThisTemplate;
+    }
+
+    protected function getAdminForm()
+    {
+        return \Sioweb\Oxid\Backend\Form\Admin\ShopConfiguration::class;
     }
 }
