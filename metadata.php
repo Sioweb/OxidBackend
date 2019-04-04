@@ -18,11 +18,11 @@ $aModule = [
     'author' => 'Sascha Weidner',
     'extend' => [
         \OxidEsales\Eshop\Application\Controller\Admin\ShopMain::class =>
-            \Sioweb\Oxid\Backend\Controller\Admin\ShopMain::class,
+            Sioweb\Oxid\Backend\Controller\Admin\ShopMain::class,
         \OxidEsales\Eshop\Application\Controller\Admin\ShopConfiguration::class =>
-            \Sioweb\Oxid\Backend\Controller\Admin\ShopConfiguration::class,
+            Sioweb\Oxid\Backend\Controller\Admin\ShopConfiguration::class,
         \OxidEsales\Eshop\Application\Controller\Admin\ShopSystem::class =>
-            \Sioweb\Oxid\Backend\Controller\Admin\ShopSystem::class,
+            Sioweb\Oxid\Backend\Controller\Admin\ShopSystem::class,
     ],
     'events' => [
         'onActivate' => '\Sioweb\Oxid\Backend\Core\Events::onActivate',
